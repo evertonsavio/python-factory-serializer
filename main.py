@@ -3,10 +3,10 @@ from songs import *
 
 song: Song = Song('You are more', 'Tenth Avenue North')
 
-json: str = ObjectSerializer.serialize(song, FormatEnum.JSON)
+json: str = ObjectSerializer.serialize(song, FormatType.JSON)
 print(json)
 
-xml: str = ObjectSerializer.serialize(song, FormatEnum.XML)
+xml: str = ObjectSerializer.serialize(song, FormatType.XML)
 print(xml)
 
 """

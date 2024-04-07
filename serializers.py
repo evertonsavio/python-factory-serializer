@@ -7,12 +7,12 @@ class JsonSerializer:
     def __init__(self):
         self._current_object = None
 
-    def start_object(self, object_name, object_id):
-        self._current_object = {
+    def start_object(self, object_name: str, object_id: str):
+        self._current_object: dict[str, str] = {
             'id': object_id
         }
 
-    def add_property(self, name, value):
+    def add_property(self, name: str, value: str):
         self._current_object[name] = value
 
     def to_str(self):
@@ -24,10 +24,10 @@ class XmlSerializer:
     def __init__(self):
         self._element = None
 
-    def start_object(self, object_name, object_id):
+    def start_object(self, object_name: str, object_id: str):
         self._element = Element(object_name, attrib={'id': object_id})
 
-    def add_property(self, name, value):
+    def add_property(self, name: str, value: str):
         prop = SubElement(self._element, name)
         prop.text = value
 

@@ -6,13 +6,13 @@ TITLE: str = 'title'
 ARTIST: str = 'artist'
 
 
-class FormatEnum(Enum):
+class FormatType(Enum):
     JSON: str = 'JSON'
     XML: str = 'XML'
 
 
-format_type: type[FormatEnum] = Literal[
-    FormatEnum.JSON, FormatEnum.XML
+format_type: type[FormatType] = Literal[
+    FormatType.JSON, FormatType.XML
 ]
 
 UUID_DATE_FORMAT: str = '%Y%m%d-%H%M%S-'
