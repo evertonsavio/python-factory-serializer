@@ -2,7 +2,7 @@ from datetime import datetime
 from uuid import uuid4
 
 from constants import *
-from serializers import SerializerInterface, JsonSerializer, XmlSerializer
+from serializers import SerializerInterface, BaseSerializer
 
 
 class Song(SerializerInterface):
@@ -15,7 +15,7 @@ class Song(SerializerInterface):
         self.__title: str = title
         self.__artist: str = artist
 
-    def serialize(self, serializer: JsonSerializer | XmlSerializer):
+    def serialize(self, serializer: BaseSerializer):
         serializer.start_object(SONG, self.__song_id)
         serializer.add_property(TITLE, self.__title)
         serializer.add_property(ARTIST, self.__artist)

@@ -9,6 +9,7 @@ ARTIST: str = 'artist'
 class FormatType(Enum):
     JSON: str = 'JSON'
     XML: str = 'XML'
+    YAML: str = "YAML"
 
 
 format_type: type[FormatType] = Literal[

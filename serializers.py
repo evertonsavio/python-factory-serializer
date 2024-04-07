@@ -1,10 +1,37 @@
 import json
 from xml.etree.ElementTree import Element, SubElement, tostring
+# pip install PyYAML
+#import yaml
 
 
-class JsonSerializer:
+class BaseSerializer:
 
     def __init__(self):
+        pass
+
+    def start_object(self, object_name: str, object_id: str):
+        pass
+
+    def add_property(self, name: str, value: str):
+        pass
+
+    def to_str(self):
+        pass
+
+
+class SerializerInterface:
+
+    def __init__(self):
+        pass
+
+    def serialize(self, serializer: BaseSerializer):
+        pass
+
+
+class JsonSerializer(BaseSerializer):
+
+    def __init__(self):
+        super().__init__()
         self._current_object = None
 
     def start_object(self, object_name: str, object_id: str):
@@ -19,9 +46,10 @@ class JsonSerializer:
         return json.dumps(self._current_object)
 
 
-class XmlSerializer:
+class XmlSerializer(BaseSerializer):
 
     def __init__(self):
+        super().__init__()
         self._element = None
 
     def start_object(self, object_name: str, object_id: str):
@@ -35,10 +63,7 @@ class XmlSerializer:
         return tostring(self._element, encoding='unicode')
 
 
-class SerializerInterface:
+class YamlSerializer(JsonSerializer):
+    def to_str(self):
+        return "not implemented yet" #yaml.dump(self._current_object)
 
-    def __init__(self):
-        pass
-
-    def serialize(self, serializer: JsonSerializer | XmlSerializer):
-        pass
