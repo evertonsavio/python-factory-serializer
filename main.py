@@ -1,12 +1,12 @@
 from factory import ObjectSerializer
 from songs import *
 
-song = Song('You are more', 'Tenth Avenue North')
+song: Song = Song('You are more', 'Tenth Avenue North')
 
-json = ObjectSerializer.serialize(song, FormatEnum.JSON)
+json: str = ObjectSerializer.serialize(song, FormatEnum.JSON)
 print(json)
 
-xml = ObjectSerializer.serialize(song, FormatEnum.XML)
+xml: str = ObjectSerializer.serialize(song, FormatEnum.XML)
 print(xml)
 
 """

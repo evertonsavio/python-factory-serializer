@@ -1,9 +1,9 @@
 from enum import Enum
 from typing import Literal
 
-SONG = 'song'
-TITLE = 'title'
-ARTIST = 'artist'
+SONG: str = 'song'
+TITLE: str = 'title'
+ARTIST: str = 'artist'
 
 
 class FormatEnum(Enum):
@@ -15,4 +15,4 @@ format_type: type[FormatEnum] = Literal[
     FormatEnum.JSON, FormatEnum.XML
 ]
 
-UUID_DATE_FORMAT = '%Y%m%d-%H%M%S-'
+UUID_DATE_FORMAT: str = '%Y%m%d-%H%M%S-'

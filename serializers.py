@@ -5,7 +5,6 @@ from xml.etree.ElementTree import Element, SubElement, tostring
 class JsonSerializer:
 
     def __init__(self):
-        super().__init__()
         self._current_object = None
 
     def start_object(self, object_name, object_id):
@@ -23,7 +22,6 @@ class JsonSerializer:
 class XmlSerializer:
 
     def __init__(self):
-        super().__init__()
         self._element = None
 
     def start_object(self, object_name, object_id):
