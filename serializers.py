@@ -2,19 +2,7 @@ import json
 from xml.etree.ElementTree import Element, SubElement, tostring
 
 
-class SerializerInterface:
-
-    def __init__(self):
-        pass
-
-    def start_object(self, object_name, object_id):
-        print("Only interface, needs to implemented on child")
-
-    def add_property(self, name, value):
-        print("Only interface, needs to implemented on child")
-
-
-class JsonSerializer(SerializerInterface):
+class JsonSerializer:
 
     def __init__(self):
         super().__init__()
@@ -32,7 +20,7 @@ class JsonSerializer(SerializerInterface):
         return json.dumps(self._current_object)
 
 
-class XmlSerializer(SerializerInterface):
+class XmlSerializer:
 
     def __init__(self):
         super().__init__()
@@ -47,3 +35,12 @@ class XmlSerializer(SerializerInterface):
 
     def to_str(self):
         return tostring(self._element, encoding='unicode')
+
+
+class SerializerInterface:
+
+    def __init__(self):
+        pass
+
+    def serialize(self, serializer: JsonSerializer | XmlSerializer):
+        pass
