@@ -1,11 +1,11 @@
 from datetime import datetime
 from uuid import uuid4
 
-from constants import *
-from serializers import SerializerInterface, BaseSerializer
+from constants.constants import UUID_DATE_FORMAT, SONG, TITLE, ARTIST
+from models.common.SerializableInterface import SerializableInterface
 
 
-class Song(SerializerInterface):
+class Song(SerializableInterface):
 
     __slots__ = ['__song_id', '__title', '__artist']
 
@@ -15,7 +15,7 @@ class Song(SerializerInterface):
         self.__title: str = title
         self.__artist: str = artist
 
-    def serialize(self, serializer: BaseSerializer):
+    def serialize(self, serializer):
         serializer.start_object(SONG, self.__song_id)
         serializer.add_property(TITLE, self.__title)
         serializer.add_property(ARTIST, self.__artist)

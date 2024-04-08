@@ -1,22 +1,36 @@
-from factory import ObjectSerializer
-from songs import *
+from factories.factory import ObjectSerializer
+from factories.registers import FormatType
+from models.common import SerializableInterface
+from models.songs.impl.Song import Song
 
-song: Song = Song('You are more', 'Tenth Avenue North')
-serializer = ObjectSerializer()
 
-json: str = serializer.serialize(song, FormatType.JSON)
-print(json)
+def proceed():
 
-xml: str = serializer.serialize(song, FormatType.XML)
-print(xml)
+    song: Song = Song('You are more', 'Tenth Avenue North')
+    print(issubclass(Song, SerializableInterface.SerializableInterface))
 
-yaml: str = serializer.serialize(song, FormatType.YAML)
-print(yaml)
+    serializer = ObjectSerializer()
+
+    json: str = serializer.serialize(song, FormatType.JSON)
+    print(json)
+
+    xml: str = serializer.serialize(song, FormatType.XML)
+    print(xml)
+
+    yaml: str = serializer.serialize(song, FormatType.YAML)
+    print(yaml)
+
 
 """
 Output:
 
-{"id": "20240407-201737-ccdfd304-2d6c-4007-ab96-a2592d914525", "title": "You are more", "artist": "Tenth Avenue North"}
-<song id="20240407-201737-ccdfd304-2d6c-4007-ab96-a2592d914525"><title>You are more</title><artist>Tenth Avenue North</artist></song>
-not implemented yet
+True
+{"id": "20240408-190136-3935475d-328e-46bf-9f29-2274df27a431", "title": "You are more", "artist": "Tenth Avenue North"}
+<song id="20240408-190136-3935475d-328e-46bf-9f29-2274df27a431"><title>You are more</title><artist>Tenth Avenue North</artist></song>
+artist: Tenth Avenue North
+id: 20240408-190136-3935475d-328e-46bf-9f29-2274df27a431
+title: You are more
 """
+
+if __name__ == "__main__":
+    proceed()
