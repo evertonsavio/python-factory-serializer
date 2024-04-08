@@ -1,7 +1,6 @@
 import json
 from xml.etree.ElementTree import Element, SubElement, tostring
-# pip install PyYAML
-# import yaml
+import yaml
 
 
 class BaseSerializer:
@@ -65,5 +64,4 @@ class XmlSerializer(BaseSerializer):
 
 class YamlSerializer(JsonSerializer):
     def to_str(self):
-        return "not implemented yet"
-        # return yaml.dump(self._current_object)
+        return yaml.dump(self._current_object)
