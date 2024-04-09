@@ -12,6 +12,8 @@ class Serializable(Generic[T]):
     def __init__(self, t: T):
         if not issubclass(Serializable, SerializableInterface):
             raise NotImplementedError
+        if not issubclass(type(t), SerializableObject):
+            raise NotImplementedError
         self.t: T = t
 
     def serialize(self, serializer: AbstractSerializer):
