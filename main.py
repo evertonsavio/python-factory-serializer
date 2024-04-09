@@ -1,23 +1,24 @@
 from factories.factory import ObjectSerializer
 from factories.registers import FormatType
-from models.common import SerializableInterface
-from models.songs.impl.Song import Song
+from models.common.impl.Serializable import Serializable
+
+from models.serializables.impl.Song import Song
 
 
 def proceed():
 
-    song: Song = Song('You are more', 'Tenth Avenue North')
-    print(issubclass(Song, SerializableInterface.SerializableInterface))
+    song = Song('You are more', 'Tenth Avenue North')
+    serializable_song = Serializable[Song](song)
 
     serializer = ObjectSerializer()
 
-    json: str = serializer.serialize(song, FormatType.JSON)
+    json: str = serializer.serialize(serializable_song, FormatType.JSON)
     print(json)
 
-    xml: str = serializer.serialize(song, FormatType.XML)
+    xml: str = serializer.serialize(serializable_song, FormatType.XML)
     print(xml)
 
-    yaml: str = serializer.serialize(song, FormatType.YAML)
+    yaml: str = serializer.serialize(serializable_song, FormatType.YAML)
     print(yaml)
 
 
