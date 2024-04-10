@@ -1,6 +1,6 @@
 import yaml
 
-from serializer_module.serializers.impl.JsonSerializer import JsonSerializer
+from serializer.serializers.impl.JsonSerializer import JsonSerializer
 
 
 class YamlSerializer(JsonSerializer):

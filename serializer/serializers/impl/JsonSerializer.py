@@ -1,8 +1,8 @@
-from serializer_module.serializers.AbstractSerializer import AbstractSerializer
+from serializer.serializers.Serializer import Serializer
 import json
 
 
-class JsonSerializer(AbstractSerializer):
+class JsonSerializer(Serializer):
 
     def __init__(self):
         super().__init__()

@@ -1,8 +1,8 @@
-from serializer_module.serializers.AbstractSerializer import AbstractSerializer
+from serializer.serializers.Serializer import Serializer
 from xml.etree.ElementTree import Element, SubElement, tostring
 
 
-class XmlSerializer(AbstractSerializer):
+class XmlSerializer(Serializer):
 
     def __init__(self):
         super().__init__()

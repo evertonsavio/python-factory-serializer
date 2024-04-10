@@ -1,7 +1,7 @@
 from abc import ABCMeta, abstractmethod
-from serializer_module.constants.registers import FormatType
-from serializer_module.models.common.SerializableInterface import SerializableInterface
-from serializer_module.serializers.AbstractSerializer import AbstractSerializer
+from serializer.constants.registers import FormatType
+from serializer.serializables.AbstractSerializable import AbstractSerializable
+from serializer.serializers.Serializer import Serializer
 
 
 class AbstractFactory(metaclass=ABCMeta):
@@ -22,7 +22,7 @@ class AbstractFactory(metaclass=ABCMeta):
         return True
 
     @abstractmethod
-    def _register_format(self, file_format: FormatType, creator: type[AbstractSerializer]):
+    def _register_format(self, file_format: FormatType, creator: type[Serializer]):
         raise NotImplementedError
 
     @abstractmethod
@@ -30,5 +30,5 @@ class AbstractFactory(metaclass=ABCMeta):
         raise NotImplementedError
 
     @abstractmethod
-    def serialize(self, serializable: SerializableInterface, file_format: FormatType) -> str:
+    def make(self, serializable: AbstractSerializable, file_format: FormatType) -> str:
         raise NotImplementedError

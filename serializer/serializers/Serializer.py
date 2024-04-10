@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class AbstractSerializer(ABC):
+class Serializer(ABC):
 
     @abstractmethod
     def start_object(self, object_name: str, object_id: str):

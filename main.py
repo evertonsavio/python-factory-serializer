@@ -1,25 +1,19 @@
-from serializer_module.factories.impl.SerializerFactory import SerializerFactory
-from serializer_module.constants.registers import FormatType
-from serializer_module.models.common.impl.Serializable import Serializable
-from serializer_module.models.serializables.impl.Song import Song
+from serializer.constants.registers import FormatType
+from project.models.Song import Song
 
 
 def proceed():
 
     song = Song('You are more', 'Tenth Avenue North')
-    serializable_song = Serializable[Song](song)
 
-    serializer = SerializerFactory()
-
-    json: str = serializer.serialize(serializable_song, FormatType.JSON)
+    json: str = song.serialize(FormatType.JSON)
     print(json)
 
-    xml: str = serializer.serialize(serializable_song, FormatType.XML)
+    xml: str = song.serialize(FormatType.XML)
     print(xml)
 
-    yaml: str = serializer.serialize(serializable_song, FormatType.YAML)
+    yaml: str = song.serialize(FormatType.YAML)
     print(yaml)
-
 
 """
 Output:

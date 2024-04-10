@@ -1,14 +1,14 @@
 from datetime import datetime
 from uuid import uuid4
 
-from serializer_module.constants.constants import UUID_DATE_FORMAT
-from serializer_module.models.serializables.SerializableObject import SerializableObject
+from serializer.constants.constants import UUID_DATE_FORMAT
+from serializer.Serializable import Serializable
 
 
-class Song(SerializableObject):
+class Song(Serializable):
 
     def __init__(self, title: str, artist: str):
-        if not issubclass(Song, SerializableObject):
+        if not issubclass(Song, Serializable):
             raise NotImplementedError
         super().__init__()
         self.song_id: str = datetime.now().strftime(UUID_DATE_FORMAT) + str(uuid4())
