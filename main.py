@@ -1,8 +1,7 @@
-from factories.factory import ObjectSerializer
-from factories.registers import FormatType
-from models.common.impl.Serializable import Serializable
-
-from models.serializables.impl.Song import Song
+from serializer_module.factories.impl.SerializerFactory import SerializerFactory
+from serializer_module.constants.registers import FormatType
+from serializer_module.models.common.impl.Serializable import Serializable
+from serializer_module.models.serializables.impl.Song import Song
 
 
 def proceed():
@@ -10,7 +9,7 @@ def proceed():
     song = Song('You are more', 'Tenth Avenue North')
     serializable_song = Serializable[Song](song)
 
-    serializer = ObjectSerializer()
+    serializer = SerializerFactory()
 
     json: str = serializer.serialize(serializable_song, FormatType.JSON)
     print(json)

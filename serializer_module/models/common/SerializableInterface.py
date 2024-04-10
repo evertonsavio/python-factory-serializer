@@ -1,20 +1,17 @@
-import abc
-
+from abc import abstractmethod, ABCMeta
 from typing import TypeVar
-
-from serializers.AbstractSerializer import AbstractSerializer
+from serializer_module.serializers.AbstractSerializer import AbstractSerializer
 
 K = TypeVar("K", bound=AbstractSerializer)
 
 
-class SerializableInterface(metaclass=abc.ABCMeta):
+class SerializableInterface(metaclass=ABCMeta):
 
     @classmethod
     def __subclasshook__(cls, __subclass):
         return (hasattr(__subclass, 'serialize') and
                 callable(__subclass.serialize))
 
-    @abc.abstractmethod
+    @abstractmethod
     def serialize(self, serializer: K):
         raise NotImplementedError
-

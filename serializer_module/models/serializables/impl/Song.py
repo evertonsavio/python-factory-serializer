@@ -1,8 +1,8 @@
 from datetime import datetime
 from uuid import uuid4
 
-from constants.constants import UUID_DATE_FORMAT
-from models.serializables.SerializableObject import SerializableObject
+from serializer_module.constants.constants import UUID_DATE_FORMAT
+from serializer_module.models.serializables.SerializableObject import SerializableObject
 
 
 class Song(SerializableObject):

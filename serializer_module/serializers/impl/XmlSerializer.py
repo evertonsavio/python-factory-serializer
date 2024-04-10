@@ -1,10 +1,8 @@
-from abc import ABC
-
-from serializers.AbstractSerializer import AbstractSerializer
+from serializer_module.serializers.AbstractSerializer import AbstractSerializer
 from xml.etree.ElementTree import Element, SubElement, tostring
 
 
-class XmlSerializer(AbstractSerializer, ABC):
+class XmlSerializer(AbstractSerializer):
 
     def __init__(self):
         super().__init__()

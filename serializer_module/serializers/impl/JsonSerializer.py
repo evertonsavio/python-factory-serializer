@@ -1,10 +1,8 @@
-from abc import ABC
-
-from serializers.AbstractSerializer import AbstractSerializer
+from serializer_module.serializers.AbstractSerializer import AbstractSerializer
 import json
 
 
-class JsonSerializer(AbstractSerializer, ABC):
+class JsonSerializer(AbstractSerializer):
 
     def __init__(self):
         super().__init__()

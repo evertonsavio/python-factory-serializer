@@ -1,13 +1,12 @@
 from typing import Generic, TypeVar
-
-from models.common.SerializableInterface import SerializableInterface
-from models.serializables.SerializableObject import SerializableObject
-from serializers.AbstractSerializer import AbstractSerializer
+from serializer_module.models.common.SerializableInterface import SerializableInterface
+from serializer_module.models.serializables.SerializableObject import SerializableObject
+from serializer_module.serializers.AbstractSerializer import AbstractSerializer
 
 T = TypeVar("T", bound=SerializableObject)
 
 
-class Serializable(Generic[T]):
+class Serializable(Generic[T], SerializableInterface):
 
     def __init__(self, t: T):
         if not issubclass(Serializable, SerializableInterface):
