@@ -10,6 +10,7 @@ class SerializableObject(Generic[T], AbstractSerializable):
     def __init__(self, t: T):
         if not issubclass(SerializableObject, AbstractSerializable):
             raise NotImplementedError
+
         self.t: T = t
 
     def make_serializable(self, serializer: Serializer):

@@ -12,18 +12,12 @@ def proceed():
     xml: str = song.serialize(FormatType.XML)
     print(xml)
 
-    yaml: str = song.serialize(FormatType.YAML)
-    print(yaml)
 
 """
 Output:
 
-True
-{"id": "20240408-190136-3935475d-328e-46bf-9f29-2274df27a431", "title": "You are more", "artist": "Tenth Avenue North"}
-<song id="20240408-190136-3935475d-328e-46bf-9f29-2274df27a431"><title>You are more</title><artist>Tenth Avenue North</artist></song>
-artist: Tenth Avenue North
-id: 20240408-190136-3935475d-328e-46bf-9f29-2274df27a431
-title: You are more
+{"id": "20240411-154543-41473bee-22e7-44fd-992a-f08c2d2d8454", "title": "You are more", "artist": "Tenth Avenue North"}
+<song_id id="20240411-154543-41473bee-22e7-44fd-992a-f08c2d2d8454"><title>You are more</title><artist>Tenth Avenue North</artist></song_id>
 """
 
 if __name__ == "__main__":
