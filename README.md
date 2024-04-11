@@ -1,3 +1,8 @@
+## Solid Abstract Factory
+
+This demonstrates the implementation of an Abstract Factory in Python.  
+Check this PR for more information how this is done: [PULL REQUEST](https://github.com/evertonsavio/python-factory-serializer/pull/1)
+
 ## Python
 
 1. Create your environment:
